@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title >Título do Livro</title>
+    <title>Death for One</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -23,6 +23,7 @@
             justify-content: center;
             gap: 1rem;
             margin-bottom: 1rem;
+            flex-wrap: wrap; /* Permite que os itens quebrem linha se necessário */
         }
         nav a {
             display: inline-block;
@@ -41,17 +42,18 @@
             text-align: center;
         }
         .chapter-title {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #df0000; /* Cor laranja para destaque */
-    text-align: center;
-    margin-bottom: 1rem;
-}
+            font-size: 2rem;
+            font-weight: bold;
+            color: #df0000;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
         .cover {
             display: flex;
             align-items: flex-start;
             justify-content: center;
             gap: 1rem;
+            flex-wrap: wrap; /* Permite que a imagem e o texto quebrem linha em telas menores */
         }
         .cover img {
             width: 30%;
@@ -85,15 +87,29 @@
             .cover {
                 flex-direction: column;
             }
+            .cover img {
+                width: 80%;
+            }
             .sinopse {
                 text-align: center;
+                padding: 0 1rem;
+            }
+            .chapter-title {
+                font-size: 1.5rem;
+            }
+            nav {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            nav a {
+                padding: 0.5rem;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1 class="chapter-title" >DEATH FOR ONE</h1>
+        <h1 class="chapter-title">Death for One</h1>
     </header>
     <nav>
         <a href="capitulo1.html">Ler Agora</a>
@@ -113,7 +129,7 @@
                     por um motorista bêbado, Shiro é atropelado e é deixado à beira da morte. 
                     Enquanto sua vida passa diante de seus olhos, ele se recusa a morrer sem deixar 
                     sua marca no mundo. Nesse momento de desespero, a figura da morte aparece diante
-                    dele em uma forma aterrorizante, oferecendo-lhe um acordo incomum</p>
+                    dele em uma forma aterrorizante, oferecendo-lhe um acordo incomum.</p>
             </section>
         </section>
         <footer>
