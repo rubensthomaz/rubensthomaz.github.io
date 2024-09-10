@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 11</title>
+    <style>
+      body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #f0f0f0;
+    position: relative;
+}
+
+.page {
+    display: none;
+    padding: 2rem;
+    max-width: 800px;
+    margin: auto;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1; /* Garante que o conteúdo principal fique acima das colunas laterais */
+}
+
+.page.active {
+    display: block;
+}
+
+.pagination {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: #6200ea;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #3700b3;
+}
+
+.btn.disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.chapter-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff5722; /* Cor laranja para destaque */
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.side {
+    position: fixed; /* Use fixed para as colunas laterais ficarem fixas */
+    top: 0;
+    bottom: 0;
+    width: 15%; /* Ajuste a largura conforme necessário */
+    background: no-repeat center center;
+    background-size: cover;
+    z-index: 0; /* Colunas laterais ficam atrás do conteúdo principal */
+}
+
+.side.left {
+    left: 0;
+    background-image: url('capa.jpg'); /* Imagem da coluna esquerda */
+}
+
+.side.right {
+    right: 0;
+    background-image: url('capa.jpg'); /* Imagem da coluna direita */
+}
+
+    </style>
+</head>
+<body>
+    <div class="page active" id="page1">
+        <article>
+            <p class="chapter-title">Capítulo 11: Traidores de Sombria</p>
+             </b> De repente, eles emergiram de entre as árvores e se encontraram diante de uma área pequena e aberta. No centro, erguia-se uma torre imponente, com pedras negras e antigas, envoltas por um brilho suave que parecia emanar de dentro das rachaduras. As paredes da torre eram irregulares, como se o tempo e as forças do mundo tivessem tentado, mas falhado, em desgastá-la. Lianas e trepadeiras rastejavam pelas laterais da estrutura, como se tentassem reivindicar o que o tempo não conseguiu.</p>
+<img src="torre.jpeg" alt="torre dos antigos" style="float: right; width: 50%; height: auto; margin-left: 20px;">
+<p>No topo, janelas estreitas e sombrias estavam abertas, como olhos vigilantes que os observavam, e no centro da torre, uma porta de madeira maciça, coberta de inscrições indecifráveis, aguardava por eles. Uma energia sutil e ancestral envolvia a área, carregada com o peso de segredos há muito enterrados e jamais revelados.</p>
+<p>Shiro e Ive trocaram olhares maravilhados diante da visão. "O que é isso?", perguntou Shiro, sua voz contendo um tom de reverência.</p>
+<p>Ive sacudiu a cabeça, incapaz de conter sua curiosidade. "Não faço ideia", admitiu ela. "Mas parece ser um lugar cheio de segredos."</p>
+<p>Enquanto observavam a torre, uma sensação de inquietação começou a se instalar em suas mentes. Eles podiam sentir a presença de algo antigo e poderoso, algo que os observava silenciosamente de dentro das sombras da torre.</p>
+<p>Com corações acelerados, Shiro e Ive deram um passo adiante, prontos para explorar as profundezas da torre e descobrir os segredos que ela guardava. O que quer que os aguardasse lá dentro, eles sabiam que sua jornada estava apenas começando e que novas aventuras e desafios os esperavam além das paredes da torre antiga.</p>
+           
+        </article>
+        <div class="pagination">
+            <a href="capitulo10.html" id="prevPage" class="btn">Página Anterior</a>
+            <a href="capitulo12.html" class="btn">Próximo Capítulo</a>
+        </div>
+    </div>
+    <div class="side left"></div>
+    <div class="side right"></div>
+    <footer>
+        <p>&copy; 2024 R. Thomaz</p>
+    </footer>
+    <script>
+        let currentPage = 1;
+        const totalPages = 2; // Atualize com o número total de páginas do capítulo
+
+        function showPage(page) {
+            for (let i = 1; i <= totalPages; i++) {
+                document.getElementById(`page${i}`).classList.remove('active');
+            }
+            document.getElementById(`page${page}`).classList.add('active');
+            
+            // Atualizar visibilidade dos botões
+            document.getElementById('prevPage').classList.toggle('disabled', page === 1);
+            document.getElementById('nextPage').classList.toggle('disabled', page === totalPages);
+        }
+
+        document.getElementById('nextPage').addEventListener('click', function (e) {
+            e.preventDefault();
+            if (currentPage < totalPages) {
+                currentPage++;
+                showPage(currentPage);
+            }
+        });
+
+        document.getElementById('prevPage').addEventListener('click', function (e) {
+            e.preventDefault();
+            if (currentPage > 1) {
+                currentPage--;
+                showPage(currentPage);
+            }
+        });
+
+        showPage(currentPage);
+    </script>
+</body>
+</html>
